@@ -1,0 +1,1 @@
+add_executable(c000 main.c)
