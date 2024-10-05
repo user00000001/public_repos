@@ -1,0 +1,34 @@
+p {
+  color: red;
+  border: thin double rgb(29, 35, 150);
+}
+
+button {
+  box-sizing: border-box;
+  color: blue;
+  padding: 1em 2em 3em 4em;
+  text-transform: uppercase;
+  transition-duration: 1s;
+  border: 1px blue dotted;
+  margin: 10px 20px 10px;
+  border-radius: 2px 4px 8px 16px;
+  outline: 5px double gold;
+  box-shadow: .5px .5px 1px 2px black;
+}
+
+button:hover {
+  padding: 0em;
+  border: 2px red solid;
+  box-shadow: none;
+}
+
+div.editor {
+  max-width: 480px;
+  background-color: aquamarine;
+  display: block;
+}
+
+input {
+  width: 50%;
+  background-color: seashell;
+}
