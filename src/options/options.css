@@ -1,0 +1,22 @@
+body {
+  background-color: lightslategray;
+}
+
+button {
+  background-color: aquamarine;
+}
+
+* {
+  color: greenyellow;
+  font-size: xx-large;
+}
+
+button {
+  border-radius: 1em;
+}
+ul li {
+  display: inline-table;
+}
+ul li a {
+  padding-right: 1em;
+}
