@@ -67,7 +67,7 @@ lspconfig.cmake.setup {
   capabilities = nvlsp.capabilities,
 }
 
--- Go
+-- go
 lspconfig.gopls.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
@@ -99,7 +99,7 @@ for _, lsp in ipairs(py_servers) do
   })
 end
 
--- C++
+-- c++
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
@@ -108,5 +108,4 @@ lspconfig.clangd.setup {
   capabilities = nvlsp.capabilities,
 }
 
-lspconfig.tailwindcss.setup {
-}
+lspconfig.tailwindcss.setup {}

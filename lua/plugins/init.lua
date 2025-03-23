@@ -24,15 +24,9 @@ return {
   -- },
 
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function ()
-      return require "configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require('rust-tools').setup(opts)
-    end
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
   },
   {
     'saecki/crates.nvim',
@@ -178,32 +172,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-		-- c++
-        "clangd",
-        "clang-format",
-        "codelldb",
-		-- cmake
-		    "cmake-language-server",
-		-- rust
-        "rust-analyzer",
-		-- python
-        "black",
-        "debugpy",
-        "mypy",
-        "ruff-lsp",
-        "pyright",
-        -- Go
-        "gopls",
-		-- nodejs
-        "eslint-lsp",
-        "js-debug-adapter",
-        "prettier",
-        "typescript-language-server",
-        "tailwindcss-language-server",
-      }
-    }
+    opts = {},
   },
   {
     "NvChad/nvim-colorizer.lua",
