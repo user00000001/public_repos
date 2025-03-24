@@ -43,3 +43,6 @@ map("n", "<leader>rcu",
   function ()
     require('crates').upgrade_all_crates()
 end, { desc = "update crates" })
+
+-- Projects
+map("n", "<leader>fp", "<CMD> ProjectMgr<CR>", { desc = "Open Projects" })

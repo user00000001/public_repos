@@ -196,4 +196,8 @@ return {
       end
     end,
   },
+  {
+    "charludo/projectmgr.nvim",
+    lazy = false, -- important!
+  },
 }
