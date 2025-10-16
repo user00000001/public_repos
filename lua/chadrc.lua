@@ -35,7 +35,7 @@ M.mason = {
         "black",
         "debugpy",
         "mypy",
-        "ruff-lsp",
+        "ruff",
         "pyright",
     -- go
         "gopls",

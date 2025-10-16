@@ -8,9 +8,9 @@ return {
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
+    config = function ()
+      require("configs.lspconfig")
+    end
   },
 
   -- {
@@ -163,7 +163,8 @@ return {
     end
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+  --  "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
 	  ft = {"go", "python", "VeryLazy"},
     event = "VeryLazy",
     opts = function()

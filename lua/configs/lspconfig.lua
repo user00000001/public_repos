@@ -1,29 +1,7 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
-
--- EXAMPLE
-local servers = { "html", "cssls" }
 local nvlsp = require "nvchad.configs.lspconfig"
-
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
-end
-
--- configuring single server, example: typescript
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
-
-local util = require "lspconfig.util"
 
 --local dap = require("dap")
 --dap.adapters.codelldb = {
@@ -45,7 +23,7 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
-lspconfig.ts_ls.setup {
+vim.lsp.config("ts_ls", {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   init_options = {
@@ -59,21 +37,22 @@ lspconfig.ts_ls.setup {
       description = "Organize Imports",
     }
   }
-}
+})
+vim.lsp.enable("ts_ls")
 
 -- cmake
-lspconfig.cmake.setup {
+vim.lsp.config("cmake", {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
-}
+})
+vim.lsp.enable("cmake")
 
 -- go
-lspconfig.gopls.setup {
+vim.lsp.config("gopls", {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   cmd = {"gopls"},
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
     gopls = {
       completeUnimported = true,
@@ -83,7 +62,8 @@ lspconfig.gopls.setup {
       },
     },
   },
-}
+})
+vim.lsp.enable("gopls")
 
 -- python
 local py_servers = {
@@ -92,20 +72,22 @@ local py_servers = {
 }
 
 for _, lsp in ipairs(py_servers) do
-  lspconfig[lsp].setup({
+  vim.lsp.config(lsp, {
     on_attach = nvlsp.on_attach,
     capabilities = nvlsp.capabilities,
     filetypes = {"python"},
   })
 end
+vim.lsp.enable(py_servers)
 
 -- c++
-lspconfig.clangd.setup {
+vim.lsp.config("clangd", {
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
     nvlsp.on_attach(client, bufnr)
   end,
   capabilities = nvlsp.capabilities,
-}
+})
+vim.lsp.enable("clangd")
 
-lspconfig.tailwindcss.setup {}
+vim.lsp.enable("tailwindcss")
