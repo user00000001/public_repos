@@ -87,6 +87,14 @@ vim.lsp.config("clangd", {
     nvlsp.on_attach(client, bufnr)
   end,
   capabilities = nvlsp.capabilities,
+  init_options = {
+    fallbackFlags = {
+      "--cuda-path=/usr/lib/cuda",
+      "--cuda-gpu-arch=sm_50",
+      "-L/usr/lib/cuda/lib64",
+      "-I/usr/lib/cuda/include",
+    },
+  },
 })
 vim.lsp.enable("clangd")
 
