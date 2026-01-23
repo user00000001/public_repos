@@ -1,0 +1,30 @@
+# Prepare
+
+```shell
+cat > selfsign-csr.json <<EOF
+{
+    "hosts": [
+        "example.com",
+        "www.example.com",
+        "https://www.example.com",
+        "jdoe@example.com",
+        "127.0.0.1"
+    ],
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+        {
+            "C":  "US",
+            "L":  "San Francisco",
+            "O":  "Internet Widgets, Inc.",
+            "OU": "WWW",
+            "ST": "California"
+        }
+    ]
+}
+EOF
+
+cfssl selfsign localhost selfsign-csr.json |cfssljson -bare selfsign
+```
