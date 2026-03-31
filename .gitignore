@@ -4,6 +4,7 @@ __pycache__
 .mypy_cache
 **/*.pth
 .ipynb_checkpoints
+.gradio
 data
 models
 runs
